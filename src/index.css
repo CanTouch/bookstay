@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html { -webkit-font-smoothing: antialiased; }
+body { @apply bg-white text-ink font-sans; }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Rounded circular arrow buttons used across carousels */
+.arrow-btn {
+  @apply w-8 h-8 rounded-full border border-ink-line bg-white flex items-center justify-center
+         hover:shadow-pill hover:scale-105 transition disabled:opacity-30 disabled:hover:shadow-none disabled:hover:scale-100;
+}
+
+.btn-brand {
+  @apply bg-brand-grad text-white font-semibold rounded-lg transition active:scale-[0.98] hover:brightness-95;
+}
+
+.link-u { @apply underline underline-offset-2 font-semibold; }
+
+/* Leaflet price pins */
+.price-pin {
+  @apply bg-white text-ink font-bold text-[13px] rounded-full px-2.5 py-1 shadow-pill border border-black/10
+         whitespace-nowrap transition hover:scale-110 cursor-pointer;
+  transform: translate(-50%, -50%);
+  display: inline-block;
+}
+.price-pin.active { @apply bg-ink text-white scale-110; }
+.leaflet-div-icon.pin-wrap { background: transparent; border: none; }
+.home-pin {
+  @apply w-12 h-12 rounded-full bg-ink text-white flex items-center justify-center shadow-float;
+  transform: translate(-50%, -50%);
+}
+.leaflet-container { font-family: inherit; }
+
+/* Ken Burns cinematic video placeholder */
+@keyframes kenburns {
+  0% { transform: scale(1) translate(0, 0); }
+  100% { transform: scale(1.18) translate(-3%, -2%); }
+}
+.kenburns { animation: kenburns 6s ease-out forwards; }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(16px);} to { opacity: 1; transform: none; } }
+.fade-up { animation: fadeUp .28s ease-out; }
+@keyframes fadeIn { from { opacity: 0 } to { opacity: 1 } }
+.fade-in { animation: fadeIn .2s ease-out; }
